@@ -13,8 +13,8 @@
 
 gcloud components install beta;
 
-export ORG_ID=488597925867;
-export BILLING_ID="0131C8-4691DE-2D8A73"
+export ORG_ID=;
+export BILLING_ID=""
 export USER=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
 export RANDOM_ID=$RANDOM; 
 

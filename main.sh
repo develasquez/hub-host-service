@@ -57,25 +57,27 @@ HUB_VPC_NAME="vpc-host";
 PROD_VPC_NAME="vpc-prod";
 QA_VPC_NAME="vpc-qa";
 DEV_VPC_NAME="vpc-dev";
-
+#https://cloud.google.com/vpc/docs/using-vpc#gcloud
 create_vpc $HUB_VPC_NAME $HUB_PROJ $SUBNET_HUB $REGION &
 create_vpc $PROD_VPC_NAME $HOST_PROD $SUBNET_PROD $REGION &
 create_vpc $QA_VPC_NAME $HOST_QA $SUBNET_QA $REGION &
 create_vpc $DEV_VPC_NAME $HOST_DEV $SUBNET_DEV $REGION ;
 
+#https://cloud.google.com/vpc/docs/provisioning-shared-vpc#org-policies
 gcloud beta resource-manager org-policies enable-enforce \
     --organization $ORG_ID compute.restrictXpnProjectLienRemoval;
 
+#https://cloud.google.com/vpc/docs/provisioning-shared-vpc#gcloud
 set_shared_vpc $HOST_PROD $SERVICE_PROD &
 set_shared_vpc $HOST_QA $SERVICE_QA &
 set_shared_vpc $HOST_DEV $SERVICE_DEV;
 
-
+#https://cloud.google.com/vpc/docs/using-vpc-peering
 create_peerings $HUB_PROJ $HUB_VPC_NAME $HOST_PROD $PROD_VPC_NAME;
 create_peerings $HUB_PROJ $HUB_VPC_NAME $HOST_QA $QA_VPC_NAME;
 create_peerings $HUB_PROJ $HUB_VPC_NAME $HOST_DEV $DEV_VPC_NAME;
 
-
+#in both directions 
 create_peerings $HOST_PROD $PROD_VPC_NAME $HUB_PROJ $HUB_VPC_NAME ;
 create_peerings $HOST_QA $QA_VPC_NAME $HUB_PROJ $HUB_VPC_NAME ;
 create_peerings $HOST_DEV $DEV_VPC_NAME $HUB_PROJ $HUB_VPC_NAME ;

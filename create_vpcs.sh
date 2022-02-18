@@ -12,6 +12,9 @@
 
 
 create_vpc() {
+    #https://cloud.google.com/vpc/docs/using-vpc#gcloud 
+    #https://cloud.google.com/sdk/gcloud/reference/compute/routers/create
+    #https://cloud.google.com/sdk/gcloud/reference/compute/routers/nats/create
     
     VPC_NAME=$1
     PROJECT_ID=$2

@@ -15,7 +15,8 @@ set_shared_vpc() {
 
     HOST_PROJECT_ID=$1
     SERVICE_PROJECT_ID=$2
-
+    #https://cloud.google.com/vpc/docs/provisioning-shared-vpc#gcloud
+    
     gcloud compute shared-vpc enable $HOST_PROJECT_ID;
     gcloud compute shared-vpc associated-projects add $SERVICE_PROJECT_ID \
         --host-project $HOST_PROJECT_ID;

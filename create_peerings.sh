@@ -11,6 +11,7 @@
 
 
 create_peerings() {
+    #https://cloud.google.com/vpc/docs/using-vpc-peering
     PROJECT_ID=$1
     NETWORK=$2
     PEER_PROJECT_ID=$3

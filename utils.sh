@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # This is not an official Google project.
 
 #This script is for educational purposes only, is not certified and is not recommended for production environments.

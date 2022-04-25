@@ -12,7 +12,7 @@
 
 
 
-source utils.sh;
+source ./utils.sh;
 
 gcloud organizations add-iam-policy-binding $ORG_ID \
   --member=user:$USER \

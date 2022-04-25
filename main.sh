@@ -11,19 +11,19 @@
 #Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 
-gcloud components install beta;
+#gcloud components install beta;
 
 export ORG_ID=;
 export BILLING_ID=""
 export USER=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
 export RANDOM_ID=$RANDOM; 
 
-source utils.sh;
-source create_projects.sh
-source enable_org_policies.sh
-source create_vpcs.sh
-source set_shared_vpc.sh
-source create_peerings.sh 
+source ./utils.sh;
+source ./create_projects.sh
+source ./enable_org_policies.sh
+source ./create_vpcs.sh
+source ./set_shared_vpc.sh
+source ./create_peerings.sh 
 
 
 #Please set your projects names, leave it as is to generate these names automatically
